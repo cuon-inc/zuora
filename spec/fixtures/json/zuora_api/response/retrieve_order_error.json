@@ -1,0 +1,10 @@
+{
+  "success": false,
+  "processId": "D42C285A20E5A296",
+  "reasons": [
+    {
+      "code": 50000020,
+      "message": "Invalid orderNumber: hogehoge"
+    }
+  ]
+}

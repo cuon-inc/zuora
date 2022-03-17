@@ -1,0 +1,20 @@
+{
+  "AccountId": "2c93808457d787030157e0321fdf4fab",
+  "Address1": "312 2nd Ave W",
+  "City": "Seattle",
+  "Country": "United States",
+  "Description": "desc",
+  "Fax": "123456",
+  "FirstName": "FN1476935164020",
+  "HomePhone": "86123456789",
+  "LastName": "LN1476935164020",
+  "MobilePhone": "8613312345678",
+  "NickName": "this is nick name",
+  "OtherPhone": "11111111111111111",
+  "OtherPhoneType": "Work",
+  "PersonalEmail": "home@example.com",
+  "PostalCode": "98119",
+  "State": "Washington",
+  "TaxRegion": "CA",
+  "WorkEmail": "work@example.com"
+}

@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "orderNumber": "OM-00002",
+  "accountNumber": "A00000001",
+  "status": "Pending",
+  "subscriptions": [
+    {
+      "subscriptionNumber": "SM-00001",
+      "status": "Pending Activation"
+    },
+    {
+      "subscriptionNumber": "SM-00002",
+      "status": "Pending Acceptance"
+    },
+    {
+      "subscriptionNumber": "SM-00003",
+      "status": "Active"
+    },
+    {
+      "subscriptionNumber": "SM-00004",
+      "status": "Pending Acceptance"
+    },
+    {
+      "subscriptionNumber": "SM-00005",
+      "status": "Suspended"
+    },
+    {
+      "subscriptionNumber": "SM-00006",
+      "status": "Active"
+    }
+  ],
+  "invoiceNumbers": [
+    "INV00000001"
+  ],
+  "paymentNumber": "P-00000002",
+  "paidAmount": 300,
+  "orderLineItems": [
+    {
+      "id": "bd78c052-2adf-42c2-aa0f-ccacc997fa20",
+      "itemNumber": "116"
+    }
+  ]
+}

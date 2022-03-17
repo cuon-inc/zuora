@@ -1,0 +1,205 @@
+{
+  "success": true,
+  "order": {
+    "orderNumber": "O-00000282",
+    "orderDate": "2018-10-01",
+    "createdDate": "2018-12-13 17:21:43",
+    "createdBy": "402881e522cf4f9b0122cf5d82860002",
+    "updatedDate": "2018-12-13 17:21:45",
+    "updatedBy": "402881e522cf4f9b0122cf5d82860002",
+    "existingAccountNumber": "A00000101",
+    "currency": "USD",
+    "status": "Completed",
+    "description": "This is a description for the Order.",
+    "subscriptions": [
+      {
+        "subscriptionNumber": "A-S00000100",
+        "customFields": {},
+        "baseVersion": 1,
+        "newVersion": 2,
+        "orderActions": [
+          {
+            "type": "UpdateProduct",
+            "sequence": 0,
+            "triggerDates": [
+              {
+                "triggerDate": "2018-12-01",
+                "name": "ContractEffective"
+              },
+              {
+                "triggerDate": "2018-12-01",
+                "name": "ServiceActivation"
+              },
+              {
+                "triggerDate": "2018-12-01",
+                "name": "CustomerAcceptance"
+              }
+            ],
+            "updateProduct": {
+              "ratePlanId": "2c98919c67a5ae9d0167a68f8eb20262",
+              "uniqueToken": null,
+              "specificUpdateDate": null,
+              "newRatePlanId": "2c98919c67a5ae9d0167a6df3011036e",
+              "chargeUpdates": [
+                {
+                  "description": null,
+                  "chargeNumber": "C-00000210",
+                  "uniqueToken": null,
+                  "newRatePlanChargeId": "2c98919c67a5ae9d0167a6df304b0372",
+                  "pricing": {
+                    "recurringPerUnit": {
+                      "listPrice": 20,
+                      "quantity": null,
+                      "priceChangeOption": null,
+                      "priceIncreasePercentage": null
+                    }
+                  },
+                  "effectiveDate": {
+                    "specificTriggerDate": null
+                  },
+                  "billing": {
+                    "billingPeriodAlignment": null
+                  },
+                  "customFields": {}
+                }
+              ],
+              "customFields": {}
+            },
+            "customFields": {}
+          }
+        ]
+      },
+      {
+        "subscriptionNumber": "A-S00000101",
+        "customFields": {},
+        "baseVersion": 1,
+        "newVersion": 2,
+        "orderActions": [
+          {
+            "type": "Suspend",
+            "sequence": 0,
+            "triggerDates": [
+              {
+                "triggerDate": "2018-12-01",
+                "name": "ContractEffective"
+              },
+              {
+                "triggerDate": "2018-12-01",
+                "name": "ServiceActivation"
+              },
+              {
+                "triggerDate": "2018-12-01",
+                "name": "CustomerAcceptance"
+              }
+            ],
+            "suspend": {
+              "suspendPolicy": "Today",
+              "suspendPeriods": null,
+              "suspendPeriodsType": null,
+              "suspendSpecificDate": null,
+              "suspendDate": "2018-12-13"
+            },
+            "customFields": {}
+          }
+        ]
+      },
+      {
+        "subscriptionNumber": "A-S00000102",
+        "customFields": {},
+        "baseVersion": 2,
+        "newVersion": 3,
+        "orderActions": [
+          {
+            "type": "Resume",
+            "sequence": 0,
+            "triggerDates": [
+              {
+                "triggerDate": "2018-12-12",
+                "name": "ContractEffective"
+              },
+              {
+                "triggerDate": "2018-12-12",
+                "name": "ServiceActivation"
+              },
+              {
+                "triggerDate": "2018-12-12",
+                "name": "CustomerAcceptance"
+              }
+            ],
+            "resume": {
+              "resumePolicy": "FixedPeriodsFromSuspendDate",
+              "resumePeriods": 10,
+              "resumePeriodsType": "Day",
+              "resumeSpecificDate": null,
+              "extendsTerm": true,
+              "resumeDate": "2018-12-23"
+            },
+            "customFields": {}
+          },
+          {
+            "type": "TermsAndConditions",
+            "sequence": 1,
+            "triggerDates": [
+              {
+                "triggerDate": "2018-12-12",
+                "name": "ContractEffective"
+              },
+              {
+                "triggerDate": "2018-12-12",
+                "name": "ServiceActivation"
+              },
+              {
+                "triggerDate": "2018-12-12",
+                "name": "CustomerAcceptance"
+              }
+            ],
+            "termsAndConditions": {
+              "autoRenew": null,
+              "renewalSetting": null,
+              "initialTerm": {
+                "startDate": null,
+                "period": 375,
+                "periodType": "Day",
+                "termType": null
+              },
+              "renewalTerms": [
+                {
+                  "period": null,
+                  "periodType": null
+                }
+              ]
+            },
+            "customFields": {}
+          }
+        ]
+      }
+    ],
+    "orderLineItems": [
+      {
+        "id": "4028fc827a0e48c1017a0e4dccc60002",
+        "orderId": "4028fc827a0e48c1017a0e58b9330014",
+        "itemName": "webcam",
+        "itemNumber": "1",
+        "itemState": "Executing",
+        "itemType": "Product",
+        "description": "With Dual Stereo Microphones, HD 1080p, Black,USB connectivity for ease of use.",
+        "purchaseOrderNumber": "960-000764",
+        "productCode": "C9201",
+        "amount": 10000,
+        "quantity": 2,
+        "amountPerUnit": 5000,
+        "listPricePerUnit": 59,
+        "billTargetDate": null,
+        "transactionStartDate": "2021-02-01",
+        "transactionEndDate": "2021-02-01",
+        "accountingCode": null,
+        "UOM": null,
+        "productRatePlanChargeId": null,
+        "customFields": {
+          "orderLineItemCF__c": "olinumber-023"
+        }
+      }
+    ],
+    "customFields": {}
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "additionalEmailAddresses": [
+    "contact1@example.com",
+    "contact2@example.com"
+  ],
+  "autoPay": false,
+  "billCycleDay": 0,
+  "billToContact": {
+    "address1": "1051 E Hillsdale Blvd",
+    "city": "Foster City",
+    "country": "United States",
+    "firstName": "John",
+    "lastName": "Smith",
+    "state": "CA",
+    "workEmail": "smith@example.com",
+    "zipCode": "94404"
+  },
+  "currency": "USD",
+  "invoiceDeliveryPrefsEmail": true,
+  "invoiceDeliveryPrefsPrint": false,
+  "name": "Zuora Test Account",
+  "notes": "This account is for demo purposes.",
+  "paymentTerm": "Due Upon Receipt",
+  "subscription": {
+    "autoRenew": true,
+    "contractEffectiveDate": "2016-01-01",
+    "initialTerm": 12,
+    "notes": "This is a trial subscription for POST account demo.",
+    "renewalTerm": 12,
+    "subscribeToRatePlans": [
+      {
+        "chargeOverrides": [
+          {
+            "price": 1000,
+            "productRatePlanChargeId": "2c92c0f94ac8307f014ae5d4a5156b28"
+          },
+          {
+            "price": 1000,
+            "productRatePlanChargeId": "2c92c0f94ac8307f014ae5dbe2947851"
+          }
+        ],
+        "productRatePlanId": "2c92c0f94ac8307f014ae5d3d1d469e2"
+      },
+      {
+        "chargeOverrides": [
+          {
+            "price": 1000,
+            "productRatePlanChargeId": "2c92c0f83cf64298013d027725a67b7b"
+          }
+        ],
+        "productRatePlanId": "2c92c0f93cf64d94013d027681560341"
+      }
+    ],
+    "termType": "TERMED"
+  }
+}

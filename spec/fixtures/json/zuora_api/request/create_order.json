@@ -1,0 +1,258 @@
+{
+  "description": "This is a description for the Order.",
+  "existingAccountNumber": "A00000001",
+  "orderDate": "2017-01-01",
+  "orderLineItems": [
+    {
+      "billingTrigger": "BillImmediately",
+      "chargeAmountPerUnit": 50,
+      "customFields": {
+        "someField__c": "some string"
+      },
+      "deferredRevenueAccountingCode": "Unearned Revenues",
+      "description": "With Dual Stereo Microphones, HD 1080p, Black",
+      "itemName": "webcam",
+      "itemType": "Product",
+      "listPricePerUnit": 59,
+      "productCode": "C9201",
+      "purchaseOrderNumber": "960-000764",
+      "quantity": 2,
+      "recognizedRevenueAccountingCode": "Earned Revenues",
+      "revenueRecognitionRule": "recognized upon invoice",
+      "taxCode": "8018",
+      "taxMode": "TaxInclusive",
+      "transactionEndDate": "2021-02-01",
+      "transactionStartDate": "2021-02-01"
+    }
+  ],
+  "orderNumber": "OM-00001",
+  "processingOptions": {
+    "applyCreditBalance": true,
+    "billingOptions": {
+      "targetDate": "2017-08-01"
+    },
+    "collectPayment": true,
+    "runBilling": true
+  },
+  "subscriptions": [
+    {
+      "orderActions": [
+        {
+          "createSubscription": {
+            "subscribeToRatePlans": [
+              {
+                "productRatePlanId": "efbff07e6290dfb8016291003bd00dda"
+              }
+            ],
+            "subscriptionNumber": "SM-00001",
+            "terms": {
+              "autoRenew": true,
+              "initialTerm": {
+                "period": 12,
+                "periodType": "Month",
+                "startDate": "2017-01-01",
+                "termType": "TERMED"
+              },
+              "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+              "renewalTerms": [
+                {
+                  "period": 12,
+                  "periodType": "Month"
+                }
+              ]
+            }
+          },
+          "triggerDates": [
+            {
+              "name": "ContractEffective",
+              "triggerDate": "2017-01-01"
+            }
+          ],
+          "type": "CreateSubscription"
+        }
+      ]
+    },
+    {
+      "orderActions": [
+        {
+          "createSubscription": {
+            "subscribeToRatePlans": [
+              {
+                "productRatePlanId": "efbff07e6290dfb8016291003bd00dda"
+              }
+            ],
+            "subscriptionNumber": "SM-00002",
+            "terms": {
+              "autoRenew": true,
+              "initialTerm": {
+                "period": 12,
+                "periodType": "Month",
+                "startDate": "2017-02-01",
+                "termType": "TERMED"
+              },
+              "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+              "renewalTerms": [
+                {
+                  "period": 12,
+                  "periodType": "Month"
+                }
+              ]
+            }
+          },
+          "triggerDates": [
+            {
+              "name": "ServiceActivation",
+              "triggerDate": "2017-02-01"
+            }
+          ],
+          "type": "CreateSubscription"
+        }
+      ]
+    },
+    {
+      "orderActions": [
+        {
+          "createSubscription": {
+            "subscribeToRatePlans": [
+              {
+                "productRatePlanId": "efbff07e6290dfb80162910024c80dd5"
+              }
+            ],
+            "subscriptionNumber": "SM-00003",
+            "terms": {
+              "autoRenew": true,
+              "initialTerm": {
+                "period": 12,
+                "periodType": "Month",
+                "startDate": "2017-01-01",
+                "termType": "TERMED"
+              },
+              "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+              "renewalTerms": [
+                {
+                  "period": 12,
+                  "periodType": "Month"
+                }
+              ]
+            }
+          },
+          "triggerDates": [
+            {
+              "name": "ServiceActivation",
+              "triggerDate": "2017-03-01"
+            },
+            {
+              "name": "CustomerAcceptance",
+              "triggerDate": "2017-04-01"
+            }
+          ],
+          "type": "CreateSubscription"
+        }
+      ]
+    },
+    {
+      "orderActions": [
+        {
+          "createSubscription": {
+            "subscribeToRatePlans": [
+              {
+                "chargeOverrides": [
+                  {
+                    "productRatePlanChargeId": "efbff07e6290dfb80162910024d80dd7",
+                    "startDate": {
+                      "triggerEvent": "SpecificDate"
+                    }
+                  }
+                ],
+                "productRatePlanId": "efbff07e6290dfb80162910024c80dd5",
+                "uniqueToken": "Sugar-free Monthly"
+              }
+            ],
+            "subscriptionNumber": "SM-00004",
+            "terms": {
+              "autoRenew": true,
+              "initialTerm": {
+                "period": 12,
+                "periodType": "Month",
+                "startDate": "2017-01-01",
+                "termType": "TERMED"
+              },
+              "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+              "renewalTerms": [
+                {
+                  "period": 12,
+                  "periodType": "Month"
+                }
+              ]
+            }
+          },
+          "triggerDates": [
+            {
+              "name": "ServiceActivation",
+              "triggerDate": "2017-03-01"
+            },
+            {
+              "name": "CustomerAcceptance",
+              "triggerDate": "2017-04-01"
+            }
+          ],
+          "type": "CreateSubscription"
+        }
+      ]
+    },
+    {
+      "orderActions": [
+        {
+          "suspend": {
+            "suspendPeriods": 2,
+            "suspendPeriodsType": "Week",
+            "suspendPolicy": "FixedPeriodsFromToday"
+          },
+          "triggerDates": [
+            {
+              "name": "ContractEffective",
+              "triggerDate": "2018-01-01"
+            },
+            {
+              "name": "ServiceActivation",
+              "triggerDate": "2018-01-01"
+            },
+            {
+              "name": "CustomerAcceptance",
+              "triggerDate": "2018-01-01"
+            }
+          ],
+          "type": "Suspend"
+        }
+      ],
+      "subscriptionNumber": "SM-00005"
+    },
+    {
+      "orderActions": [
+        {
+          "resume": {
+            "extendsTerm": true,
+            "resumePolicy": "SpecificDate",
+            "resumeSpecificDate": "2018-10-01"
+          },
+          "triggerDates": [
+            {
+              "name": "ContractEffective",
+              "triggerDate": "2018-01-01"
+            },
+            {
+              "name": "ServiceActivation",
+              "triggerDate": "2018-01-01"
+            },
+            {
+              "name": "CustomerAcceptance",
+              "triggerDate": "2018-01-01"
+            }
+          ],
+          "type": "Resume"
+        }
+      ],
+      "subscriptionNumber": "SM-00006"
+    }
+  ]
+}

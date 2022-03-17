@@ -11,6 +11,13 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before do
+    allow(ENV).to receive(:[]).and_call_original
+    allow(ENV).to receive(:[]).with("ZUORA_ENDPOINT").and_return("https://rest.apisandbox.zuora.com")
+    allow(ENV).to receive(:[]).with("ZUORA_CLIENT_ID").and_return("client_id")
+    allow(ENV).to receive(:[]).with("ZUORA_CLIENT_SECRED").and_return("client_secret")
+  end
 end
 
 paths = Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")]

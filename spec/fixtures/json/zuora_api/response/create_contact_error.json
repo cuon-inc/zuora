@@ -1,0 +1,9 @@
+{
+  "Errors": [
+    {
+      "Code": "INVALID_VALUE",
+      "Message": "The account number 123xProxy is invalid."
+    }
+  ],
+  "Success": false
+}

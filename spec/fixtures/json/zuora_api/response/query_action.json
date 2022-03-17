@@ -1,0 +1,30 @@
+{
+  "records": [
+    {
+      "AdjustmentNumber": "IIA-00000001",
+      "ServiceEndDate": "2016-10-20",
+      "Id": "2c93808457d787030157e0324aea5158",
+      "AccountingCode": "Accounts Receivable",
+      "UpdatedDate": "2016-10-20T05:46:14.000+02:00",
+      "AccountId": "2c93808457d787030157e032485b5131",
+      "Comment": "this is comments",
+      "InvoiceNumber": "INV00000001",
+      "InvoiceId": "2c93808457d787030157e03248c75142",
+      "ServiceStartDate": "2016-10-20",
+      "CreatedById": "2c93808457d787030157e032283c4fb2",
+      "CreatedDate": "2016-10-20T05:46:14.000+02:00",
+      "InvoiceItemName": "OneTime_Flat Fee Pricing1476935174089",
+      "UpdatedById": "2c93808457d787030157e032283c4fb2",
+      "Amount": 1.2,
+      "AdjustmentDate": "2016-10-20",
+      "SourceId": "2c93808457d787030157e03248c95144",
+      "SourceType": "InvoiceDetail",
+      "Status": "Processed",
+      "Type": "Credit",
+      "ReferenceId": "refid-1476935174845",
+      "ReasonCode": "Standard Adjustment"
+    }
+  ],
+  "size": 1,
+  "done": true
+}
