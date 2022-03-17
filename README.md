@@ -2,8 +2,6 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/zuora`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Initialization
+
+You can set the zuora endpoint, zuora client id, and zuora client secret in environment variables:
+
+```bash
+export ZUORA_ENDPOINT="endpoint"
+export ZUORA_CLIENT_ID="client_id"
+export ZUORA_CLIENT_SECRET="client_secret"
+```
+
+### Global configuration
+
+You can set any of the options globally:
+```ruby
+Zuora.configure do |config|
+  config.endpoint = 'endpoint'
+  config.client_id = 'client_id'
+  config.client_secret = 'client_secret'
+  config.logger = Logger.new('/path/to/logfile')
+end
+```
 
 ## Development
 
