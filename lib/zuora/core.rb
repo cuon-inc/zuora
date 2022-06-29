@@ -73,6 +73,18 @@ module Zuora
       end
     end
 
+    def self.first(object_name)
+      records = Zuora::Api::V1::Action.query("select id, name, CreatedDate from #{object_name}")["records"]
+      account_id = records.min_by { |h| h["CreatedDate"] }["Id"]
+      find(account_id)
+    end
+
+    def self.last(object_name)
+      records = Zuora::Api::V1::Action.query("select id, name, CreatedDate from #{object_name}")["records"]
+      account_id = records.max_by { |h| h["CreatedDate"] }["Id"]
+      find(account_id)
+    end
+
     def self.config
       ::Zuora.config
     end
