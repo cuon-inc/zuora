@@ -13,12 +13,12 @@ module Zuora
 
     # @return [Hash]
     def self.first
-      Zuora::Core.laat("Account")
+      Zuora::Core.first("Account")
     end
 
     # @return [Hash]
     def self.last
-      Zuora::Core.laat("Account")
+      Zuora::Core.last("Account")
     end
 
     #

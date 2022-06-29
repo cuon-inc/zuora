@@ -8,6 +8,11 @@ require "faraday"
 require "oauth2"
 
 module Zuora
+  autoload :Account, "zuora/account"
+  autoload :Contact, "zuora/contact"
+  autoload :Order, "zuora/order"
+  autoload :Subscription, "zuora/subscription"
+  autoload :Catalog, "zuora/catalog"
   module Api
     module V1
       autoload :Account, "zuora/api/v1/account"
