@@ -1,6 +1,5 @@
 module Zuora
   class Account
-
     # @return [Hash]
     def self.find(id)
       Zuora::Core.find("Account", id)
@@ -12,10 +11,13 @@ module Zuora
     end
 
     # @return [Hash]
-    def self.last
-      records = Zuora::Api::V1::Action.query("select id, name, CreatedDate from Account")["records"]
-      account_id = records.max_by { |h| h["CreatedDate"] }["Id"]
-      find(account_id)
+    def self._first
+      Zuora::Core._first("Account")
+    end
+
+    # @return [Hash]
+    def self._last
+      Zuora::Core._last("Account")
     end
 
     #
