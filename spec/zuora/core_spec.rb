@@ -151,6 +151,46 @@ RSpec.describe Zuora::Core do
     end
   end
 
+  describe "._first" do
+    subject { described_class._first(object_name) }
+
+    let(:result) do
+      { "records" => [{ "Id" => "hoge1", "CreatedDate" => "2022-07-05T14:01:58.000+09:00" },
+                      { "Id" => "hoge2", "CreatedDate" => "2022-07-05T14:30:58.000+09:00" },
+                      { "Id" => "hoge3", "CreatedDate" => "2022-07-06T14:30:58.000+09:00" }] }
+    end
+
+    before do
+      allow(Zuora::Api::V1::Action).to receive(:query).and_return(result)
+      allow(described_class).to receive(:find).with("hoge1")
+        .and_return({ Id: "hoge1" })
+    end
+
+    it '作成時間が最小のレコードidが取得できること' do
+      expect(subject).to eq ({:Id=>"hoge1"})
+    end
+  end
+
+  describe "._last" do
+    subject { described_class._last(object_name) }
+
+    let(:result) do
+      { "records" => [{ "Id" => "hoge1", "CreatedDate" => "2022-07-05T14:01:58.000+09:00" },
+                      { "Id" => "hoge2", "CreatedDate" => "2022-07-05T14:30:58.000+09:00" },
+                      { "Id" => "hoge3", "CreatedDate" => "2022-07-06T14:30:58.000+09:00" }] }
+    end
+
+    before do
+      allow(Zuora::Api::V1::Action).to receive(:query).and_return(result)
+      allow(described_class).to receive(:find).with("hoge3")
+        .and_return({ Id: "hoge3" })
+    end
+
+    it '作成時間が最大のレコードidが取得できること' do
+      expect(subject).to eq ({:Id=>"hoge3"})
+    end
+  end
+
   describe ".config" do
     subject { described_class.config }
 

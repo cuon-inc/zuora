@@ -80,7 +80,7 @@ module Zuora
     end
 
     def self._last(object_name)
-      records = Zuora::Api::V1::Action.query("select id, name, CreatedDate from #{object_name}")["records"]
+      records = Zuora::Api::V1::Action.query("select id, CreatedDate from #{object_name}")["records"]
       account_id = records.max_by { |h| h["CreatedDate"] }["Id"]
       find(account_id)
     end
