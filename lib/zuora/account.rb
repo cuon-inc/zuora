@@ -1,6 +1,5 @@
 module Zuora
   class Account
-
     # @return [Hash]
     def self.find(id)
       Zuora::Core.find("Account", id)
@@ -12,13 +11,13 @@ module Zuora
     end
 
     # @return [Hash]
-    def self.first
-      Zuora::Core.laat("Account")
+    def self._first
+      Zuora::Core._laat("Account")
     end
 
     # @return [Hash]
-    def self.last
-      Zuora::Core.laat("Account")
+    def self._last
+      Zuora::Core._last("Account")
     end
 
     #
