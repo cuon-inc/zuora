@@ -12,7 +12,7 @@ module Zuora
 
     # @return [Hash]
     def self._first
-      Zuora::Core._laat("Account")
+      Zuora::Core._first("Account")
     end
 
     # @return [Hash]
