@@ -8,7 +8,9 @@ module Zuora
 
     # @return [Hash]
     def self.find_by(**args)
-      Zuora::Core.find_by("Product", **args)
+      product = Zuora::Product.find_by(**args)
+      return if product.nil?
+      find(product['Id'])
     end
 
     # @return [Hash]
