@@ -13,6 +13,7 @@ module Zuora
   autoload :Order, "zuora/order"
   autoload :Subscription, "zuora/subscription"
   autoload :Catalog, "zuora/catalog"
+  autoload :Product, "zuora/product"
   module Api
     module V1
       autoload :Account, "zuora/api/v1/account"
