@@ -20,9 +20,9 @@ RSpec.describe Zuora::Api::V1::Subscription do
       it "取得できること" do
         res = subject
         expect(res["success"]).to eq true
-        expect(res["subscription"]["subscriptionNumber"]).to eq "A-S00023298"
-        expect(res["subscription"]["id"]).to eq "8ad09b7d830721b501830b0d04fb30c6"
-        expect(res["subscription"]["initialTermPeriodType"]).to eq "Month"
+        expect(res["subscriptionNumber"]).to eq "A-S00023298"
+        expect(res["id"]).to eq "8ad09b7d830721b501830b0d04fb30c6"
+        expect(res["initialTermPeriodType"]).to eq "Month"
       end
     end
 
