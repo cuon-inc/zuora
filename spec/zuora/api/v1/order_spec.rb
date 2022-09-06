@@ -114,6 +114,30 @@ RSpec.describe Zuora::Api::V1::Order do
     end
   end
 
+  describe ".list_by_account_number" do
+    subject { described_class.list_by_account_number(account_number, page: 1, page_size: 2) }
+
+    before do
+      WebMock.stub_request(:get, "https://rest.apisandbox.zuora.com/v1/orders/invoiceOwner/#{account_number}?page=1&pageSize=2")
+        .to_return(
+          body: File.read("spec/fixtures/json/zuora_api/response/list_by_account_number_order.json"),
+          status: 200,
+        )
+    end
+
+    context "指定件数分取得" do
+      let(:account_number) { "A00001886" }
+
+      it "指定件数分取得できること" do
+        res = subject
+        expect(res["success"]).to eq true
+        expect(res["orders"].size).to eq 2
+        expect(res["orders"][0]["orderNumber"]).to eq "O-00060210"
+        expect(res["orders"][1]["orderNumber"]).to eq "O-00060209"
+      end
+    end
+  end
+
   describe ".delete" do
     subject { described_class.delete(key) }
 

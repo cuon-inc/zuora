@@ -16,6 +16,33 @@ module Zuora
         end
 
         #
+        # List orders of an invoice owner
+        #
+        # @param [String] account_number 請求書所有者のアカウント番号
+        # @param [Integer] page ページ番号
+        # @param [Integer] page_size ページサイズ
+        # @param [String] date_filter_option 日付フィルターオプション(orderDate or updatedDate)
+        # @param [String <date>] start_date 開始日
+        # @param [String <date>] end_date 終了日
+        #
+        # 例)
+        # Api::V1::Order.list_by_account_number('A00001886', page: 1, page_size: 20)
+        # Api::V1::Order.list_by_account_number('A00001886',
+        #                                        dateFilterOption: 'orderDate',
+        #                                        start_date: '2022-01-01',
+        #                                        end_date: '2022-12-31')
+        #
+        def self.list_by_account_number(account_number, page: 1, page_size: 20, **date_params)
+          params = { page: page, pageSize: page_size }
+          unless date_params.empty?
+            params[:dateFilterOption] = date_params[:date_filter_option]
+            params[:startDate] = date_params[:start_date]
+            params[:endDate] = date_params[:end_date]
+          end
+          request(:get, "/v1/orders/invoiceOwner/#{account_number}", params)
+        end
+
+        #
         # Retrieve Order
         #
         # @param [String] order_number 注文番号
