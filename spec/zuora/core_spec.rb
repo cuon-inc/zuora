@@ -166,8 +166,8 @@ RSpec.describe Zuora::Core do
         .and_return({ Id: "hoge1" })
     end
 
-    it '作成時間が最小のレコードidが取得できること' do
-      expect(subject).to eq ({:Id=>"hoge1"})
+    it "作成時間が最小のレコードidが取得できること" do
+      expect(subject).to eq({ Id: "hoge1" })
     end
   end
 
@@ -186,8 +186,8 @@ RSpec.describe Zuora::Core do
         .and_return({ Id: "hoge3" })
     end
 
-    it '作成時間が最大のレコードidが取得できること' do
-      expect(subject).to eq ({:Id=>"hoge3"})
+    it "作成時間が最大のレコードidが取得できること" do
+      expect(subject).to eq({ Id: "hoge3" })
     end
   end
 
