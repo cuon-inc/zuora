@@ -1,8 +1,8 @@
 module Zuora
   class Subscription
     # @return [Hash]
-    def self.find_by(**args)
-      Zuora::Core.find_by("Subscription", **args)
+    def self.find(id)
+      Zuora::Core.find("Subscription", id)
     end
 
     # @return [Array<Hash>]
