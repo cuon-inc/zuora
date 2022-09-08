@@ -1,5 +1,10 @@
 module Zuora
   class Subscription
+    # @return [Hash]
+    def self.find(id)
+      Zuora::Core.find("Subscription", id)
+    end
+
     # @return [Array<Hash>]
     def self.where(**args)
       Zuora::Core.where("Subscription", **args)
