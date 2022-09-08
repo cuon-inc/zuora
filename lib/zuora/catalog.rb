@@ -1,6 +1,5 @@
 module Zuora
   class Catalog
-
     # @return [Hash]
     def self.find(id)
       Zuora::Core.find("Catalog", id)
@@ -10,7 +9,8 @@ module Zuora
     def self.find_by(**args)
       product = Zuora::Product.find_by(**args)
       return if product.nil?
-      find(product['Id'])
+
+      find(product["Id"])
     end
 
     # @return [Hash]
