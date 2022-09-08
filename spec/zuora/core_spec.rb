@@ -83,6 +83,41 @@ RSpec.describe Zuora::Core do
     end
   end
 
+  describe ".where" do
+    subject { described_class.where(object_name, args) }
+
+    let(:args) { { key1: "key1", key2: nil, key3: :key3 } }
+    let(:record) { instance_double("result") }
+    let(:data) { { "records" => [record, instance_double("result", Id: "id2")] } }
+    let(:attrs) { [{ Id: "id1" }, { Id: "id2" }] }
+
+    before do
+      allow(Zuora::Api::V1::Action).to receive(:query)
+        .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3").and_return(data)
+      allow(record).to receive(:[]).with("Id").and_return(attrs["Id"])
+    end
+
+    context "存在するID" do
+      before do
+        allow(described_class).to receive(:find).with(object_name, record["Id"]).and_return(attrs)
+      end
+
+      it "値が取得できる" do
+        expect(subject).to eq(attrs)
+      end
+    end
+
+    context "存在しないID" do
+      before do
+        allow(described_class).to receive(:find).with(object_name, record["Id"]).and_return([])
+      end
+
+      it "値が取得できない" do
+        expect(subject).to eq([])
+      end
+    end
+  end
+
   describe ".create!" do
     subject { described_class.create!(object_name, params, id_key_name) }
 
@@ -166,8 +201,8 @@ RSpec.describe Zuora::Core do
         .and_return({ Id: "hoge1" })
     end
 
-    it '作成時間が最小のレコードidが取得できること' do
-      expect(subject).to eq ({:Id=>"hoge1"})
+    it "作成時間が最小のレコードidが取得できること" do
+      expect(subject).to eq({ Id: "hoge1" })
     end
   end
 
@@ -186,8 +221,8 @@ RSpec.describe Zuora::Core do
         .and_return({ Id: "hoge3" })
     end
 
-    it '作成時間が最大のレコードidが取得できること' do
-      expect(subject).to eq ({:Id=>"hoge3"})
+    it "作成時間が最大のレコードidが取得できること" do
+      expect(subject).to eq({ Id: "hoge3" })
     end
   end
 

@@ -1,6 +1,5 @@
 module Zuora
   class Order
-
     # @return [Array<Hash>] Zuora::Order
     def self.all
       # TODO: ページネーション検討
