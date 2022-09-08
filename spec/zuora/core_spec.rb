@@ -87,32 +87,24 @@ RSpec.describe Zuora::Core do
     subject { described_class.where(object_name, args) }
 
     let(:args) { { key1: "key1", key2: nil, key3: :key3 } }
-    let(:record) { instance_double("result") }
-    let(:data) { { "records" => [record, instance_double("result", Id: "id2")] } }
+    let(:data) { { "records" => [{ Id: "id1" }, { Id: "id2" }] } }
     let(:attrs) { [{ Id: "id1" }, { Id: "id2" }] }
 
     before do
       allow(Zuora::Api::V1::Action).to receive(:query)
         .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3").and_return(data)
-      allow(record).to receive(:[]).with("Id").and_return(attrs["Id"])
     end
 
-    context "存在するID" do
-      before do
-        allow(described_class).to receive(:find).with(object_name, record["Id"]).and_return(attrs)
-      end
-
-      it "値が取得できる" do
+    context "レコードが存在する" do
+      it "配列の要素数は1以上で返却する" do
         expect(subject).to eq(attrs)
       end
     end
 
-    context "存在しないID" do
-      before do
-        allow(described_class).to receive(:find).with(object_name, record["Id"]).and_return([])
-      end
+    context "レコードが存在しない" do
+      let(:data) { { "records" => [] } }
 
-      it "値が取得できない" do
+      it "配列の要素数は0で返却する" do
         expect(subject).to eq([])
       end
     end
