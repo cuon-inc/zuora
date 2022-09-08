@@ -48,7 +48,8 @@ module Zuora
     end
 
     # @return [Array<Hash>]
-    def self.where(object_name, **args)
+    def self.where(object_name, column_names: ["Id"], **args)
+      column_names = column_names.join(", ")
       conditions = args.map do |key, value|
         if value.is_a?(String)
           "#{key} = '#{value}'"
@@ -60,7 +61,7 @@ module Zuora
       end
       conditions = conditions.join(" AND ")
       query = <<-QUERY.squish
-        select Id
+        select #{column_names}
         from #{object_name}
         where #{conditions}
       QUERY
