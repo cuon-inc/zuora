@@ -83,6 +83,33 @@ RSpec.describe Zuora::Core do
     end
   end
 
+  describe ".where" do
+    subject { described_class.where(object_name, args) }
+
+    let(:args) { { key1: "key1", key2: nil, key3: :key3 } }
+    let(:data) { { "records" => [{ Id: "id1" }, { Id: "id2" }] } }
+    let(:attrs) { [{ Id: "id1" }, { Id: "id2" }] }
+
+    before do
+      allow(Zuora::Api::V1::Action).to receive(:query)
+        .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3").and_return(data)
+    end
+
+    context "レコードが存在する" do
+      it "配列の要素数は1以上で返却する" do
+        expect(subject).to eq(attrs)
+      end
+    end
+
+    context "レコードが存在しない" do
+      let(:data) { { "records" => [] } }
+
+      it "配列の要素数は0で返却する" do
+        expect(subject).to eq([])
+      end
+    end
+  end
+
   describe ".create!" do
     subject { described_class.create!(object_name, params, id_key_name) }
 

@@ -47,6 +47,30 @@ module Zuora
       end
     end
 
+    # @return [Array<Hash>]
+    def self.where(object_name, column_names: ["Id"], **args)
+      column_names = column_names.join(", ")
+      conditions = args.map do |key, value|
+        if value.is_a?(String)
+          "#{key} = '#{value}'"
+        elsif value.nil?
+          "#{key} = null"
+        else
+          "#{key} = #{value}"
+        end
+      end
+      conditions = conditions.join(" AND ")
+      query = <<-QUERY.squish
+        select #{column_names}
+        from #{object_name}
+        where #{conditions}
+      QUERY
+
+      data = Zuora::Api::V1::Action.query(query)
+
+      data["records"] || []
+    end
+
     def self.create!(object_name, params, id_key_name)
       res = "Zuora::Api::V1::#{object_name.camelize}".constantize.create(params)
 
