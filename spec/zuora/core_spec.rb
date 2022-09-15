@@ -58,7 +58,7 @@ RSpec.describe Zuora::Core do
 
     before do
       allow(Zuora::Api::V1::Action).to receive(:query)
-        .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3").and_return(data)
+        .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3", {}).and_return(data)
       allow(record).to receive(:[]).with("Id").and_return(attrs["Id"])
     end
 
@@ -92,7 +92,7 @@ RSpec.describe Zuora::Core do
 
     before do
       allow(Zuora::Api::V1::Action).to receive(:query)
-        .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3").and_return(data)
+        .with("select Id from #{object_name} where key1 = 'key1' AND key2 = null AND key3 = key3", {}).and_return(data)
     end
 
     context "レコードが存在する" do
