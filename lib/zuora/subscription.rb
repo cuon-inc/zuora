@@ -6,8 +6,8 @@ module Zuora
     end
 
     # @return [Array<Hash>]
-    def self.where(**args)
-      Zuora::Core.where("Subscription", **args)
+    def self.where(additional_headers: {}, **args)
+      Zuora::Core.where("Subscription", additional_headers: additional_headers, **args)
     end
 
     # @return [Array<Hash>]
